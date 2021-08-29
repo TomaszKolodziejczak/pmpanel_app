@@ -1,0 +1,26 @@
+.main ul {
+    list-style-type: none;
+    font-size: small;
+}
+
+.main li {
+    color: black;
+}
+
+nav.main a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    transition: .2s;
+}
+
+nav.main a:hover {
+    transform: translateX(20px);
+}
+
+nav.main a.active {
+    border-left: 2px solid;
+    transform: translateX(0);
+    border-left-color: rgb(59, 56, 56)
+}
