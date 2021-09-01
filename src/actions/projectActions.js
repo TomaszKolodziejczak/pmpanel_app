@@ -9,7 +9,7 @@ export const GET_PROJECTS = 'GET_PROJECTS';
 
 export const getProjects = () => (dispatch, getState) => {
     axios
-        .get('http://127.0.0.1:8000/api/', tokenConfig(getState))
+        .get('/api/', tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: GET_PROJECTS,
@@ -32,7 +32,7 @@ export const addProject = ({
     author,
 }) => (dispatch, getState) => {
     axios
-        .post('http://127.0.0.1:8000/api/create',
+        .post('/api/create',
             {
                 project_name,
                 start_date,
@@ -68,7 +68,7 @@ export const editProject = ({
     id,
 }) => (dispatch, getState) => {
     axios
-        .put(`http://127.0.0.1:8000/api/update/${id}`,
+        .put(`/api/update/${id}`,
             {
                 project_name,
                 start_date,
@@ -92,7 +92,7 @@ export const editProject = ({
 
 export const deleteProject = id => (dispatch, getState) => {
     axios
-        .delete(`http://127.0.0.1:8000/api/delete/${id}`, tokenConfig(getState))
+        .delete(`/api/delete/${id}`, tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: DELETE_PROJECT,

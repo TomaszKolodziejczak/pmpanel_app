@@ -13,7 +13,7 @@ export const GET_COMMENTS = 'EDIT_COMMENT';
 
 export const getComments = () => (dispatch, getState) => {
     axios
-        .get('http://127.0.0.1:8000/comments/', tokenConfig(getState))
+        .get('/comments/', tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: GET_COMMENTS,
@@ -33,7 +33,7 @@ export const addComment = ({
     console.log(author)
     axios
 
-        .post('http://127.0.0.1:8000/comments/create',
+        .post('/comments/create',
             {
                 text,
                 projectID,
@@ -57,7 +57,7 @@ export const editComment = ({
     id
 }) => (dispatch, getState) => {
     axios
-        .put(`http://127.0.0.1:8000/comments/update/${id}`,
+        .put(`/comments/update/${id}`,
             {
                 text,
                 projectID,
@@ -75,7 +75,7 @@ export const editComment = ({
 //DELETE COMMENT
 export const deleteComment = id => (dispatch, getState) => {
     axios
-        .delete(`http://127.0.0.1:8000/comments/delete/${id}`, tokenConfig(getState))
+        .delete(`/comments/delete/${id}`, tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: DELETE_COMMENT,

@@ -11,7 +11,7 @@ export const GET_USERS = 'GET_USERS'
 //GET USERS
 export const getUsers = () => (dispatch, getState) => {
     axios
-        .get('http://127.0.0.1:8000/users/auth/users', tokenConfig(getState))
+        .get('/users/auth/users', tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: GET_USERS,
@@ -31,7 +31,7 @@ export const addUser = ({
     phone,
 }) => (dispatch, getState) => {
     axios
-        .post(`http://127.0.0.1:8000/users/register`, {
+        .post(`/users/register`, {
             first_name,
             last_name,
             email,
@@ -81,7 +81,7 @@ export const addUser = ({
 // DELETE USER
 export const deleteUser = (id) => (dispatch, getState) => {
     axios
-        .delete(`http://127.0.0.1:8000/users/delete/${id}`)
+        .delete(`/users/delete/${id}`)
         .then(res => {
             dispatch({
                 type: DELETE_USER,
