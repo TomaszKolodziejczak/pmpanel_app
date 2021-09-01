@@ -58,6 +58,7 @@ export const login = (email, password) => dispatch => {
             dispatch({
                 type: LOGIN_FAIL,
             });
+            alert("Incorrect email or passsword. Login failed")
         });
 };
 
@@ -86,6 +87,7 @@ export const register = ({ email, password, first_name, last_name, age, sex, pho
             dispatch({
                 type: REGISTER_FAIL,
             });
+            alert("Incorrect data. Registraction failed")
         });
 };
 

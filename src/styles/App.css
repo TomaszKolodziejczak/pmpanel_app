@@ -27,7 +27,7 @@ main {
 }
 
 aside {
-  min-width: 200px;
+  /* min-width: 200px; */
   min-height: max-content;
   background-color: #EEEEEE;
   align-items: center;
