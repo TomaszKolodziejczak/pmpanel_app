@@ -36,3 +36,15 @@ class LoginSerializer(serializers.Serializer):
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Incorrect Credentials")
+
+
+class UpdateUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'first_name',
+                  'last_name', 'age', 'sex', 'phone')
+
+        def validate(self, data):
+            user = authenticate(**data)
+            if user and user.is_active:
+                return user

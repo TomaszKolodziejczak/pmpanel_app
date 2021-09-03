@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import FormAddEditProject from './components/FormAddEditProject.jsx';
 import ProjectDetailsList from './containers/ProjectDetailsList';
 import ProjectList from './containers/ProjectsList';
-import AdminPanel from './containers/AdminPanel.js';
+import AdminPanel from './components/accounts/AdminPanel.js';
 
 
 const BaseRouter = () => {

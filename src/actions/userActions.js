@@ -50,32 +50,33 @@ export const addUser = ({
 
 
 
-// // EDIT USER
-// export const editUser = ({
-//     first_name,
-//     last_name,
-//     email,
-//     sex,
-//     phone,
-//     id }) => (dispatch, getState) => {
-//         axios
-//             .put(`http://127.0.0.1:8000/users/update/${id}`,
-//                 {
-//                     first_name,
-//                     last_name,
-//                     email,
-//                     sex,
-//                     phone,
-//                     id,
-//                 })
-//             .then(res => {
-//                 dispatch({
-//                     type: EDIT_USER,
-//                     payload: res.data,
-//                 });
-//             })
-//             .catch(err => console.log(err));
-//     };
+// EDIT USER
+export const editUser = ({
+    first_name,
+    last_name,
+    email,
+    sex,
+    age,
+    phone,
+    id }) => (dispatch, getState) => {
+        axios
+            .put(`/users/auth/update/${id}`,
+                {
+                    first_name,
+                    last_name,
+                    email,
+                    sex,
+                    age,
+                    phone,
+                }, tokenConfig(getState))
+            .then(res => {
+                dispatch({
+                    type: EDIT_USER,
+                    payload: res.data,
+                });
+            })
+            .catch(err => console.log(err));
+    };
 
 
 // DELETE USER

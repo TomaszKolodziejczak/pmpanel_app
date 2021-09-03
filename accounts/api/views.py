@@ -4,7 +4,7 @@ import os
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, UpdateUserSerializer
 
 from accounts.models import CustomUser
 
@@ -56,6 +56,17 @@ class UserAPI(generics.RetrieveAPIView):
         permissions.IsAuthenticated,
     ]
     serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
+
+
+# Update User API
+class UpdateAPI(generics.UpdateAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = UpdateUserSerializer
 
     def get_object(self):
         return self.request.user
