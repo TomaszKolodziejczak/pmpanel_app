@@ -66,6 +66,7 @@ export class Register extends Component {
                                 name="email"
                                 onChange={this.onChange}
                                 value={email}
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -76,6 +77,7 @@ export class Register extends Component {
                                 name="first_name"
                                 onChange={this.onChange}
                                 value={first_name}
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -86,6 +88,7 @@ export class Register extends Component {
                                 name="password"
                                 onChange={this.onChange}
                                 value={password}
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -96,6 +99,7 @@ export class Register extends Component {
                                 name="password2"
                                 onChange={this.onChange}
                                 value={password2}
+                                required
                             />
                         </div>
                         <br /><br />

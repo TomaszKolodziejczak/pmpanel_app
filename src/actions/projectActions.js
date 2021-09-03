@@ -50,7 +50,10 @@ export const addProject = ({
                 payload: res.data,
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err)
+            alert('Project has NOT been added.');
+        });
 };
 
 
@@ -84,8 +87,12 @@ export const editProject = ({
                 type: EDIT_PROJECT,
                 payload: res.data,
             });
+            alert('Project has been changed.');
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            alert('You have no permission to change this project. Project has NOT been changed.');
+        })
 };
 
 //DELETE PROJECT
@@ -98,8 +105,12 @@ export const deleteProject = id => (dispatch, getState) => {
                 type: DELETE_PROJECT,
                 payload: id,
             });
+            alert('Project has been deleted!')
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            alert('You have no permission to delete this project. Project has NOT been deleted.');
+        })
 };
 
 

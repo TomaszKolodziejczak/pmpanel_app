@@ -75,7 +75,6 @@ const FormAddEditProject = ({
 
     if (id) {
       callback();
-      alert('Project has been changed.');
       history.goBack();
     }
     history.push('/projects')

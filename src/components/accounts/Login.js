@@ -41,6 +41,7 @@ export class Login extends Component {
                                 name="email"
                                 onChange={this.onChange}
                                 value={email}
+                                required
                             />
                         </div>
 
@@ -52,6 +53,7 @@ export class Login extends Component {
                                 name="password"
                                 onChange={this.onChange}
                                 value={password}
+                                required
                             />
                         </div>
 

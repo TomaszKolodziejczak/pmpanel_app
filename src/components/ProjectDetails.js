@@ -86,7 +86,7 @@ const ProjectDetails = ({
   const handleDelete = (id) => {
     if (window.confirm('Do you want to delete this project?')) {
       dispatch(deleteProject(id));
-      alert('Project has been deleted!')
+
       history.push('/projects')
       // { <Redirect to='/projects' /> }
     }
