@@ -29,7 +29,6 @@ const Comment = ({ text, id, created_date, author, projectID }) => {
   let allUsers = [...users]
   for (var i = 0; i < allUsers.length; i++) {
     if (allUsers[i].id === author) {
-      console.log('trafione')
       authorName = allUsers[i].first_name;
       break;
     }

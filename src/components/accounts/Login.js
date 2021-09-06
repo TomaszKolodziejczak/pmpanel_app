@@ -28,7 +28,7 @@ export class Login extends Component {
         }
         const { email, password } = this.state;
         return (
-            <div className="container" style={{ maxWidth: 400, alignContent: 'center' }}>
+            <div className="col-md-5 m-auto">
                 <div className="card card-body mt-5">
                     <h2 className="text-center">Login</h2>
                     <form onSubmit={this.onSubmit}>

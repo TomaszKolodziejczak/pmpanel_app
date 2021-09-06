@@ -21,7 +21,7 @@ class Project(models.Model):
     start_date = models.DateField(blank=True, default='2020-01-01')
     end_date = models.DateField(blank=True, default='2020-01-01')
     status = models.SmallIntegerField(choices=STATUS_CHOICES, default='0')
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True, max_length=300)
     created_date = models.DateField(auto_now_add=True, null=True)
     last_modified = models.DateField(auto_now=True, null=True)
     author = models.ForeignKey(

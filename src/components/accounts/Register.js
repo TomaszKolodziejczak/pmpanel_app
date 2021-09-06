@@ -24,21 +24,31 @@ export class Register extends Component {
     onSubmit = event => {
         event.preventDefault();
         const { email, password, password2, first_name, last_name, age, sex, phone } = this.state;
-        if (password !== password2) {
-            alert('Passwords do not match');
-        } else {
-            const newUser = {
-                email,
-                password,
-                first_name,
-                last_name,
-                sex: Number(sex),
-                age: Number(age),
-                phone
-            };
-            this.props.register(newUser);
-            console.log(newUser)
+        if ((password.match(/[a-z]/g) && password.match(
+            /[A-Z]/g) && password.match(
+                /[0-9]/g) && password.match(
+                    /[^a-zA-Z]/g) && password.length >= 8)) {
+            if (password !== password2) {
+                alert('Passwords do not match');
+            } else {
+                const newUser = {
+                    email,
+                    password,
+                    first_name,
+                    last_name,
+                    sex: Number(sex),
+                    age: Number(age),
+                    phone
+                };
+                this.props.register(newUser);
+                console.log(newUser)
+            }
         }
+        else {
+            alert("Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters")
+        }
+
+
     };
 
     onChange = event => {
@@ -54,7 +64,7 @@ export class Register extends Component {
         }
         const { email, password, password2, first_name, last_name, age, sex, phone } = this.state;
         return (
-            <div className="container" style={{ maxWidth: 400, alignContent: 'center', textAlign: 'center' }}>
+            <div className="col-md-5 m-auto">
                 <div className="card card-body mt-5">
                     <h2 className="text-center">Register</h2>
                     <form onSubmit={this.onSubmit}>
@@ -88,6 +98,9 @@ export class Register extends Component {
                                 name="password"
                                 onChange={this.onChange}
                                 value={password}
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Password must contain at least one number and one uppercase and lowercase letter,
+                                and at least 8 or more characters"
                                 required
                             />
                         </div>
@@ -122,6 +135,8 @@ export class Register extends Component {
                                 type="number"
                                 className="form-control"
                                 name="age"
+                                min='1'
+                                max='100'
                                 onChange={this.onChange}
                                 value={age}
                             />

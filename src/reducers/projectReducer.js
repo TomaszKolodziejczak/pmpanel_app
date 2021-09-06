@@ -48,7 +48,6 @@ const projectReducer = (state = initState, action) => {
             );
 
         default:
-            console.warn(`Pro - Unknown action type: ${action.type}`);
             return state;
 
     }

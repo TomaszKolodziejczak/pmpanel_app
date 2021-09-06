@@ -21,12 +21,14 @@ const ProjectDetailsList = (props) => {
   ));
 
   return (
-    <div className="card" style={{ margin: 15 }}>
-      <div className="card-body">
+    <div className="col-md-16 m-auto">
+      <div className="card card-body mt-5">
         <ul>
           {projectDetails}
         </ul>
       </div></div>
+
+
   );
 }
 

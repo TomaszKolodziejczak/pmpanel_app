@@ -33,7 +33,6 @@ const commentReducer = (state = [], action) => {
                 currentStateElement.id !== action.payload.id);
 
         default:
-            console.warn(`Com - Unknown action type: ${action.type}`);
             return state;
 
     }

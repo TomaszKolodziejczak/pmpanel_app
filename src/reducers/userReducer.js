@@ -44,7 +44,6 @@ const userReducer = (state = [], action) => {
             );
 
         default:
-            console.warn(`User - Unknown action type: ${action.type}`);
             return state;
 
     }

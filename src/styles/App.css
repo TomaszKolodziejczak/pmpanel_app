@@ -27,14 +27,13 @@ main {
 }
 
 aside {
-  /* min-width: 200px; */
+  min-width: 200px;
   min-height: max-content;
   background-color: #EEEEEE;
   align-items: center;
-  margin-left: 10px;
   
 }
-section.page {
+section {
   flex-grow: 1;
   background-color: #EEEEEE;
   align-items: center;

@@ -10,7 +10,7 @@ all_users = get_user_model().objects.all()
 
 
 class Comment(models.Model):
-    text = models.TextField(blank=True)
+    text = models.TextField(blank=True, max_length=80)
     author = models.ForeignKey(
         User, on_delete=SET_DEFAULT, default='author unknown', related_name='comment_author', blank=True)
     last_modified = models.DateTimeField(auto_now=True)

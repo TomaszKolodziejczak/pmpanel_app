@@ -42,6 +42,7 @@ const FormAddComment = ({
             <div className="input-group mb-3">
               <input
                 type="text"
+                maxLength="80"
                 onChange={handleTextChange}
                 value={textInput}
                 className="form-control"

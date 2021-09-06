@@ -19,8 +19,8 @@ const Navigation = () => {
 
   return (
 
-    <div className="card" style={{ margin: 15 }}>
-      <div className="card-body">
+    <div className="col-md-10 m-auto">
+      <div className="card card-body mt-5">
         <nav className="main">
           <ul>
             {menu}

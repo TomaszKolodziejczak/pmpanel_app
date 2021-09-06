@@ -85,10 +85,11 @@ const ProjectDetails = ({
 
   const handleDelete = (id) => {
     if (window.confirm('Do you want to delete this project?')) {
-      dispatch(deleteProject(id));
+      dispatch(deleteProject(id)
+      );
 
-      history.push('/projects')
-      // { <Redirect to='/projects' /> }
+      window.location = './'
+
     }
   }
 
@@ -103,31 +104,26 @@ const ProjectDetails = ({
   const endDate = end_date.toLocaleString()
 
   return (
-    <div className="container" style={{ margin: 15 }}>
-      <div className="row align-items-center">
-        <div className="col"></div>
-        <div className="col-6">
-          <div className="card text-center bg-light">
-            <div className="card-header">{statusNames[status]}</div>
-            <div className="card-body">
-              <h5 className="card-title">{project_name}</h5>
-              <div className="card-text">
-                {description}
-                <br />Author: {authorName}
-                <br />Co-workers: {names}
-                <br />
-                {formOrButtonElement}
-                <button style={{ margin: 10 }} className="btn btn-danger" onClick={() => handleDelete(id)} >
-                  Delete
-                </button>
-                <BackButton />
-              </div>
-              <p>You can edit or delete only your own projects</p>
-            </div>
-            <div className="card-footer text-muted">Duration from {startDate} to {endDate}.</div>
-          </div>
+    <div className="col-md-10 m-auto">
+      <div className="card card-body mt-5">
+        <div className="card-header">{statusNames[status]}</div>
+
+        <h5 className="card-title">{project_name}</h5>
+        <div className="card-text">
+          {description}
+          <br />Author: {authorName}
+          <br />Co-workers: {names}
+          <br />
+          {formOrButtonElement}
+          <button style={{ margin: 10 }} className="btn btn-danger" onClick={() => handleDelete(id)} >
+            Delete
+          </button>
+          <BackButton />
         </div>
-        <div className="col"></div>
+        <p>You can edit or delete only your own projects</p>
+
+        <div className="card-footer text-muted">Duration from {startDate} to {endDate}.</div>
+
       </div>
 
       <FormAddComment projectID={id} />

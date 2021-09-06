@@ -63,7 +63,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=16, default='firstname')
     last_name = models.CharField(
         max_length=32, default='lastname', null=True, blank=True)
-    age = models.SmallIntegerField(blank=True, null=True)
+    age = models.PositiveIntegerField(blank=True, null=True)
     sex = models.SmallIntegerField(choices=CHOICES, blank=True, null=True)
     phone = models.CharField(max_length=12, blank=True, null=True)
     is_active = models.BooleanField(default=True)

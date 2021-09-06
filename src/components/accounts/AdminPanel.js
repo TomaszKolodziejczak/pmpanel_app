@@ -22,7 +22,7 @@ export class AdminPanel extends Component {
     };
 
     onSubmit = event => {
-
+        event.preventDefault()
         const { email, first_name, last_name, age, sex, phone } = this.state;
         const newUser = {
             email,
@@ -34,8 +34,7 @@ export class AdminPanel extends Component {
             id: this.props.auth.user.id
         };
         this.props.editUser(newUser);
-        console.log(newUser);
-        < Redirect to='/admin' />
+        window.location = './'
 
     };
 
@@ -55,8 +54,8 @@ export class AdminPanel extends Component {
         // }
 
         return (
-            <div className="container" style={{ maxWidth: 400, alignContent: 'center' }}>
-                <div className="card" style={{ margin: 15 }}>
+            <div className="col-md-5 m-auto">
+                <div className="card card-body mt-5">
 
                     <div className="card-header" style={{ backgroundColor: 'navy', color: 'white' }}>
                         {user.email}

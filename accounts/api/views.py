@@ -1,6 +1,7 @@
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os
+import pickle
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
@@ -43,11 +44,22 @@ class AllUserAPI(generics.ListAPIView):
     permission_classes = [
         permissions.IsAuthenticated,
     ]
-    queryset = CustomUser.objects.all()
+
     serializer_class = UserSerializer
 
-    def get_object(self):
-        return self.request.user.objects.all()
+    def get(self, request, format=None):
+        """
+        Return a list of all users.
+        """
+
+        userEmail = self.request.user.email
+
+        users = CustomUser.objects.exclude(email=userEmail)
+
+        usernames = [{'id': user.id, 'email': user.email, 'first_name': user.first_name}
+                     for user in users]
+
+        return Response(usernames)
 
 
 # Get One User API
@@ -72,14 +84,14 @@ class UpdateAPI(generics.UpdateAPIView):
         return self.request.user
 
 
-class Assets(View):
+# class Assets(View):
 
-    def get(self, _request, filename):
-        path = os.path.join(os.path.dirname(__file__),
-                            'build/static', filename)
+#     def get(self, _request, filename):
+#         path = os.path.join(os.path.dirname(__file__),
+#                             'build/static', filename)
 
-        if os.path.isfile(path):
-            with open(path, 'rb') as file:
-                return HttpResponse(file.read(), content_type='application/javascript')
-        else:
-            return HttpResponseNotFound()
+#         if os.path.isfile(path):
+#             with open(path, 'rb') as file:
+#                 return HttpResponse(file.read(), content_type='application/javascript')
+#         else:
+#             return HttpResponseNotFound()

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import $ from 'jquery'
+import $ from 'jquery';
 
 import { addProject, editProject } from '../actions/projectActions'
 import { getUsers } from '../actions/userActions';
@@ -17,6 +17,8 @@ const FormAddEditProject = ({
   id,
   callback,
 }) => {
+
+
 
   //get users from api
   useEffect(() => {
@@ -80,14 +82,13 @@ const FormAddEditProject = ({
     history.push('/projects')
   }
 
-
+  const todayDate = new Date()
 
   return (
     <div className="container" style={{ maxWidth: 400, alignContent: 'center' }}>
       <div className="card" style={{ margin: 15 }}>
         <div className="card-body bg-light">
           <i>Enter data below:</i>
-
           <form onSubmit={handleOnSubmit}>
             <div className="input-group mb-3">
               <span className="input-group-text" id="inputGroup-sizing-default">Project name</span>
@@ -97,6 +98,7 @@ const FormAddEditProject = ({
                 onChange={handleNameChange}
                 type="text"
                 value={nameInput}
+                maxlength="32"
                 placeholder={
                   nameInput
                     ? nameInput
@@ -116,7 +118,7 @@ const FormAddEditProject = ({
                 placeholder={
                   startDateInput
                     ? startDateInput
-                    : new Date()
+                    : todayDate
                 }
                 required />
             </div>
@@ -132,8 +134,9 @@ const FormAddEditProject = ({
                 placeholder={
                   endDateInput
                     ? endDateInput
-                    : new Date()
+                    : todayDate
                 }
+                min={startDateInput}
                 required />
             </div>
 
@@ -147,6 +150,7 @@ const FormAddEditProject = ({
                 value={descriptionInput}
                 rows="3"
                 cols="30"
+                maxLength="300"
                 placeholder={
                   descriptionInput
                     ? descriptionInput
@@ -183,6 +187,7 @@ const FormAddEditProject = ({
                 <select
                   className="form-select"
                   aria-label="multiple select example"
+                  size="4"
                   names="participantsIds"
                   id="participantsIds"
                   type="text"

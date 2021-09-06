@@ -28,23 +28,28 @@ const ProjectList = () => {
   ));
 
   return (
+
     <div className="card" style={{ margin: 15 }}>
-      <div className="card-body bg-light">
-        {!projectsElements.length
-          ? 'There is no projects'
-          : <table className="table table-hover">
-            <thead>
-              <tr className="fs-4">
-                <th scope="col">#</th>
-                <th scope="col">Project name</th>
-                <th scope="col">Deadline</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody className="fs-5">
-              {projectsElements}
-            </tbody>
-          </table>}
+      <div className="card-body bg-light ">
+        <div className="col-md-12 m-auto">
+          <div className="card card-body mt-5">
+            {!projectsElements.length
+              ? 'There is no projects'
+              : <table className="table table-hover">
+                <thead>
+                  <tr className="fs-4">
+                    <th scope="col">#</th>
+                    <th scope="col">Project name</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody className="fs-5">
+                  {projectsElements}
+                </tbody>
+              </table>}
+          </div>
+        </div>
       </div>
     </div>
   );
