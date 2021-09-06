@@ -111,7 +111,7 @@ const ProjectDetails = ({
         <h5 className="card-title">{project_name}</h5>
         <div className="card-text">
           {description}
-          <br />Author: {authorName}
+          <br />Author: {authorName ? authorName : "You are the author"}
           <br />Co-workers: {names}
           <br />
           {formOrButtonElement}
